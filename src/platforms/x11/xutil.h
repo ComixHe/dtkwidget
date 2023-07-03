@@ -32,19 +32,20 @@ enum class CornerEdge
     kBottomRight = 4 | 2,
 };
 
-enum class XCursorType
-{
-    kInvalid = -1,
-    kArrow = 2,
-    kTop = 138,
-    kTopRight = 136,
-    kRight = 96,
-    kBottomRight = 14,
-    kBottom = 16,
-    kBottomLeft = 12,
-    kLeft = 70,
-    kTopLeft = 134,
+enum class XCursorType {
+  kInvalid = -1,
+  kArrow = 2,
+  kTop = 138,
+  kTopRight = 136,
+  kRight = 96,
+  kBottomRight = 14,
+  kBottom = 16,
+  kBottomLeft = 12,
+  kLeft = 70,
+  kTopLeft = 134,
 };
+
+#if DTK_VERSION < DTK_VERSION_CHECK(6, 0, 0, 0)
 
 D_DECL_DEPRECATED void ChangeWindowMaximizedState(const QWidget *widget, int wm_state);
 D_DECL_DEPRECATED CornerEdge GetCornerEdge(const QWidget *widget, int x, int y, const QMargins &margins, int border_width);
@@ -71,6 +72,8 @@ D_DECL_DEPRECATED void SetWindowExtents(const QWidget *widget, const QMargins &m
 D_DECL_DEPRECATED void SetWindowExtents(uint wid, const QRect &windowRect, const QMargins &margins, const int resizeHandleSize);
 D_DECL_DEPRECATED void PropagateSizeHints(const QWidget *w);
 D_DECL_DEPRECATED void DisableResize(const QWidget *w);
+
+#endif
 
 }
 
